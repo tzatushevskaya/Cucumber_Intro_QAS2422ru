@@ -1,6 +1,5 @@
 package com.step_it.pages;
 
-import com.google.common.io.ByteSource;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,6 +24,7 @@ public class MainPage extends BasePage {
     }
 
     public void logout() {
+        menuBtn.click();
         logoutBtn.click();
     }
 

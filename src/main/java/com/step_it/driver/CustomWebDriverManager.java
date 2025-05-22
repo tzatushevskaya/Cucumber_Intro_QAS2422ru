@@ -2,8 +2,8 @@ package com.step_it.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,15 +16,15 @@ public class CustomWebDriverManager {
 
     public static void startDriver() {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        Map<String, Object> prefs = new HashMap<String, Object>();
+        EdgeOptions options = new EdgeOptions();
+        Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         prefs.put("improved_password_change_service", false);
 //        prefs.put("profile.default_content_setting_values.notifications", 2);
         options.addArguments("--remote-allow-origins=*");
         options.setExperimentalOption("prefs", prefs);
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
 
         new WebDriverWait(driver, Duration.ofSeconds(5));
         Listener listener = new Listener();
